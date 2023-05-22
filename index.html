@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vinyl</title>
+
+    <!--    Fonts   -->
+    <link rel="preload" href="assets/fonts/Poppins/Poppins-Regular.ttf" as="font" type="font/ttf" importance="high"/>
+    <link rel="preload" href="assets/fonts/Poppins/Poppins-Medium.ttf" as="font" type="font/ttf" importance="high"/>
+    <link rel="preload" href="assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font"
+          type="font/ttf" importance="high"/>
+
+    <!--    Icons Fonts  -->
+    <link rel="preload" href="assets/fonts/vinyl-icons/vinyl-icons.ttf?np4wh7" as="font" type="font/ttf"
+          importance="high"/>
+    <link rel="preload" href="assets/fonts/vinyl-icons/vinyl-icons.woff?np4wh7" as="font" type="font/woff"
+          importance="high"/>
+
+    <!--    Styles-->
+    <style>
+        @font-face {
+            font-family: 'vinyl-icons';
+            src: url('assets/fonts/vinyl-icons/vinyl-icons.ttf?np4wh7') format('truetype'),
+            url('assets/fonts/vinyl-icons/vinyl-icons.woff?np4wh7') format('woff'),
+            url('assets/fonts/vinyl-icons/vinyl-icons.svg?np4wh7#vinyl-icons') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="assets/scss/main.scss">
+</head>
+<body>
+{{> widgets/main-navbar }}
+{{> widgets/filters }}
+<script type="module" src="assets/scripts/main.js"></script>
+</body>
+</html>

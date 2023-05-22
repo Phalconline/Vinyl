@@ -1,0 +1,10 @@
+#Libs
+/node_modules
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# System files
+/.idea
+.DS_Store
