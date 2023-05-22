@@ -1,0 +1,45 @@
+.field {
+    height: 42rem;
+    padding: 11rem 14rem;
+    font-size: var(--fz-controls);
+    border-radius: var(--border-raduis-base);
+    border: 1rem solid var(--color-grey-light);
+    box-sizing: border-box;
+    transition: var(--tr-medium) border;
+
+    &:hover {
+        outline: none;
+    }
+
+    &:active, &:focus {
+        outline: none;
+        border-color: var(--color-brand);
+    }
+
+    &::placeholder {
+        color: var(--color-grey);
+    }
+}
+
+select.field {
+    appearance: none;
+    padding-right: 35rem;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMjQiIGhlaWdodD0iMTAyNCIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCI+CjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0yMzkuMDI5IDM2Ny4wMzBjOS4zNzItOS4zNzMgMjQuNTY5LTkuMzczIDMzLjk0MSAwbDIzOS4wMjkgMjM5LjAyNyAyMzkuMDMwLTIzOS4wMjdjOS4zNzMtOS4zNzMgMjQuNTY2LTkuMzczIDMzLjkzOSAwczkuMzczIDI0LjU2NiAwIDMzLjkzOWwtMjU2IDI1NmMtOS4zNzMgOS4zNzMtMjQuNTY2IDkuMzczLTMzLjkzOSAwbC0yNTYuMDAxLTI1NmMtOS4zNzItOS4zNzMtOS4zNzItMjQuNTY2IDAtMzMuOTM5eiI+PC9wYXRoPgo8L3N2Zz4K");
+    background-repeat: no-repeat;
+    background-position: right 10rem center;
+    background-size: 1.2em;
+    line-height: var(--lh-base);
+    color: var(--color-grey);
+
+    &-highlighted {
+        color: var(--color-text-base);
+    }
+
+    option {
+        color: var(--color-text-base);
+
+        &:disabled {
+            display: none;
+        }
+    }
+}

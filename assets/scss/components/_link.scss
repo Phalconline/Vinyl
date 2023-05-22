@@ -1,0 +1,15 @@
+.link {
+    font-family: var(--ff-sub);
+    font-size: 1.143em;
+    font-weight: var(--fw-base);
+    user-select: none;
+
+    &-white {
+        color: var(--color-white);
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transition: opacity var(--tr-medium);
+    }
+}

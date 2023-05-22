@@ -1,0 +1,10 @@
+.tr {
+    &-hover {
+        &-opacity-0p8 {
+            &:hover {
+                opacity: 0.8;
+                transition: opacity var(--tr-medium);
+            }
+        }
+    }
+}

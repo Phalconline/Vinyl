@@ -1,0 +1,47 @@
+.flex {
+    display: flex;
+
+    &-direction {
+        &-column {
+            flex-direction: column;
+        }
+    }
+
+    &-jc {
+        &-flex-start {
+            justify-content: flex-start;
+        }
+
+        &-center {
+            justify-content: center;
+        }
+
+        &-space-between {
+            justify-content: space-between;
+        }
+    }
+
+    &-ai {
+        &-center {
+            align-items: center;
+        }
+    }
+}
+
+.gap {
+    &-0p5 {
+        gap: 0.5em;
+    }
+
+    &-0p86 {
+        gap: 0.86em;
+    }
+
+    &-1 {
+        gap: 1em;
+    }
+
+    &-1p3 {
+        gap: 1.3em;
+    }
+}

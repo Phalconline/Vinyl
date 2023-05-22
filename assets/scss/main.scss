@@ -1,0 +1,19 @@
+@import "core/variables";
+
+@import "lib/normilize";
+
+@import "core/global";
+@import "core/visability";
+@import "core/helpers";
+@import "core/grid";
+@import "core/icons";
+@import "core/typography";
+@import "core/transitions";
+
+@import "components/link";
+@import "components/btn";
+@import "components/field";
+
+@import "widgets/main-navbar";
+
+@import "layouts/main";

@@ -1,0 +1,19 @@
+.fz {
+    &-base {
+        font-size: 1em;
+    }
+
+    &-tiny {
+        font-size: 0.857em;
+    }
+
+    &-big {
+        font-size: 1.714em;
+    }
+}
+
+.color {
+    &-white {
+        color: var(--color-white);
+    }
+}

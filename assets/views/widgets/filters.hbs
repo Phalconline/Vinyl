@@ -1,0 +1,30 @@
+<form id="searchBar" class="search-bar flex flex-jc-center">
+    <div class="container flex flex-direction-column max-width-600 gap-0p86 box-sizing-border-box">
+        <div>
+            <input type="text" name="artist" class="field width-100" placeholder="Artist"/>
+        </div>
+
+        <div class="flex gap-0p86">
+            <select name="genre" class="field width-100">
+                <option disabled selected>Genre</option>
+            </select>
+            <select name="decade" class="field width-100">
+                <option disabled selected>Decade</option>
+                <option>Decade 123</option>
+                <option>23 Decade</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="country" class="field width-100">
+                <option disabled selected>Country</option>
+            </select>
+        </div>
+
+        <div class="flex flex-jc-center">
+            <button type="submit" form="searchBar" class="btn btn-brand width-100">
+                Search
+            </button>
+        </div>
+    </div>
+</form>

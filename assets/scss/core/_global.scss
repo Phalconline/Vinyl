@@ -1,0 +1,19 @@
+html {
+    scroll-behavior: smooth;
+    font-size: var(--fz-initial-ratio);
+
+    body {
+        font-family: var(--ff-base);
+        font-size: var(--fz-base);
+        font-weight: var(--fw-base);
+        line-height: var(--lh-base);
+        color: var(--color-text-base);
+
+        .container {
+            width: 100%;
+            padding: 0 20rem;
+            margin: 0 auto;
+        }
+    }
+}
+

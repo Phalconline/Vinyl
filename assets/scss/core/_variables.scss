@@ -1,0 +1,38 @@
+:root {
+    //Base Colors
+    --color-brand: #083644;
+    --color-brand-dark: #0A2530;
+    --color-brand-light: #738286;
+    --color-grey: #6C7072;
+    --color-grey-light: #EDEEF0;
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    //Font Family
+    --ff-base: 'Plus Jakarta Sans', sans-serif;
+    --ff-sub: 'Popins', sans-serif;
+
+    //Font Size
+    --fz-initial-ratio: 1px;
+    --fz-base: 14rem;
+    --fz-controls: 16rem;
+
+    //Font Weight
+    --fw-base: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    //Lineheight
+    --lh-base: 1.3;
+
+    //Text
+    --color-text-base: var(--color-brand-dark);
+    --color-text-light: var(--color-brand-light);
+
+    //Transitions
+    --tr-fast: 200ms;
+    --tr-medium: 400ms;
+
+    //Border
+    --border-raduis-base: 4rem;
+}
