@@ -11,8 +11,9 @@ html {
 
         .container {
             width: 100%;
-            padding: 0 20rem;
+            padding: 0 19rem;
             margin: 0 auto;
+            box-sizing: border-box;
         }
     }
 }

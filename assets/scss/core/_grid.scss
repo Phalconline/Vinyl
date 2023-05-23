@@ -26,6 +26,14 @@
             align-items: center;
         }
     }
+
+    &-wrap {
+        flex-wrap: wrap;
+
+        &-nw {
+            flex-wrap: nowrap;
+        }
+    }
 }
 
 .gap {

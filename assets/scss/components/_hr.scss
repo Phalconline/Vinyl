@@ -1,0 +1,9 @@
+hr {
+    margin: 0;
+
+    &.hr {
+        &-7 {
+            height: 7rem;
+        }
+    }
+}

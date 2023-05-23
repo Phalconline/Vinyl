@@ -10,10 +10,12 @@
 @import "core/typography";
 @import "core/transitions";
 
+@import "components/hr";
 @import "components/link";
 @import "components/btn";
 @import "components/field";
 
 @import "widgets/main-navbar";
+@import "widgets/card";
 
 @import "layouts/main";

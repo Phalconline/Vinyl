@@ -17,3 +17,11 @@
         color: var(--color-white);
     }
 }
+
+.text {
+    &-color {
+        &-brand-light {
+            color: var(--color-brand-light);
+        }
+    }
+}
