@@ -5,6 +5,9 @@ export default {
   plugins: [
     handlebars({
       partialDirectory: resolve(__dirname, './assets/views'),
+      compileOptions: {
+        preventIndent: true,
+      },
     }),
   ],
 };
