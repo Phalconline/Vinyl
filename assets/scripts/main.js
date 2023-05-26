@@ -2,18 +2,22 @@ import Navigo from 'navigo';
 import common from "./common";
 import main from "./routes/main";
 import favourites from "./routes/favourites";
-import API from "./utils/api"
+import API from "./utils/api";
 
-const router = new Navigo('/', { strategy: 'ALL' });
+const ROUTER = new Navigo('/', { strategy: 'ALL' });
 
 const app = async () => {
   API.init();
   common.init();
 
-  router.on({
-    '/':  () => main.init(),
-    '/favourites':  () => favourites.init(),
+  ROUTER.on({
+    '/':  (match) => main.init(match),
+    '/favourites':  (match) => favourites.init(match),
   }).resolve();
+
+  window.addEventListener("historyStateUpdate", (event) => {
+    ROUTER.navigate(event.detail.url);
+  }, {passive: true});
 };
 
 document.addEventListener('DOMContentLoaded', app);

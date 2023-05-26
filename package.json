@@ -5,9 +5,8 @@
     "author": "Oleksandr Sokolovskyi",
     "private": true,
     "scripts": {
-        "dev": "yarn views && vite",
-        "build": "yarn views && vite build",
-        "views": "handlebars ./assets/views/*/*.hbs -f ./assets/scripts/views.precompiled.js"
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.14",

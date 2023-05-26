@@ -1,21 +1,21 @@
-<form id="searchBar" class="search-bar flex flex-jc-center">
+<form id="searchBar" class="search-bar flex flex-jc-center" method="GET" />
     <div class="container flex flex-direction-column max-width-600 gap-0p86 box-sizing-border-box">
         <div>
-            <input type="text" name="artist" id="Artist" class="field width-100" placeholder="Artist"/>
+            <input type="text" name="artist" id="Artist" class="field width-100" placeholder="Artist" maxlength="20" pattern="[a-zA-Z0-9\s]+"/>
         </div>
 
         <div class="flex gap-0p86">
             <select name="genre" id="Genre" class="field width-100">
-                <option disabled selected>Genre</option>
+                <option selected value="">Genre</option>
             </select>
-            <select name="decade" id="decade" class="field width-100">
-                <option disabled selected>Decade</option>
+            <select name="decade" id="Decade" class="field width-100">
+                <option selected value="">Decade</option>
             </select>
         </div>
 
         <div>
             <select name="country" id="Country" class="field width-100">
-                <option disabled selected>Country</option>
+                <option selected value="">Country</option>
             </select>
         </div>
 

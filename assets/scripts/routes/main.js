@@ -4,9 +4,10 @@ import searchBar from "../widgets/searchBar";
 export default {
   searchBarFiltersData: {},
 
-  init() {
+  init(match) {
     try {
-      this.setSearchBarConfig();
+      console.log(match);
+      this.setSearchBarConfig(match);
 
       searchBar.init(this.getSearchBarConfig());
     } catch (error) {
@@ -14,9 +15,12 @@ export default {
     }
   },
 
-  setSearchBarConfig() {
+  setSearchBarConfig(match) {
     let data = API.getAllData(),
-      searchBarFiltersData = searchBar.filtersData;
+      searchBarFiltersData = {};
+
+    Object.assign(searchBarFiltersData, searchBar.filtersData);
+    searchBarFiltersData.selected = match.params || {};
 
     for (const key of Object.keys(data)) {
       if (key in searchBarFiltersData) {
