@@ -1,29 +1,33 @@
-<article class="card">
-    <section class="card-poster">
-        <picture class="width-100 display-b">
-            <source srcset="/assets/images/posters/modern/1x/1.webp, /assets/images/posters/modern/2x/1_2x.webp 2x" type="image/webp"/>
-            <img srcset="/assets/images/posters/default/1x/1.png 2x" src="/assets/images/posters/default/1x/1.png" type="image/png"
-                 alt="title" width="169" height="169" loading="lazy"/>
-        </picture>
-        <a href="javascript:void(0);"><i class="ico-heart"></i></a>
-    </section>
-    <header class="card-content flex flex-direction-column">
-        <h2><b>Let There Be Rock</b></h2>
-        <h3>AC/DC</h3>
+<script id="cardViewTPL" type="text/x-handlebars-template">
+    <article class="card">
+        <section class="card-poster">
+            <picture class="width-100 display-b">
+                <source srcset="/assets/images/posters/modern/1x/[[posterImageName]].webp, /assets/images/posters/modern/2x/[[posterImageName]]_2x.webp 2x"
+                        type="image/webp"/>
+                <img srcset="/assets/images/posters/default/1x/[[posterImageName]].png 2x" src="/assets/images/posters/default/1x/[[posterImageName]].png"
+                     type="image/png"
+                     alt="title" width="169" height="169" loading="lazy"/>
+            </picture>
+            <a href="javascript:void(0);"><i class="ico-heart"></i></a>
+        </section>
+        <header class="card-content flex flex-direction-column">
+            <h2><b>[[album]]</b></h2>
+            <h3>[[artist]]</h3>
 
-        <h4>
-            <span class="text-color-brand-light">Year&nbsp;:</span>&nbsp;1990
-        </h4>
-        <h4>
-            <span class="text-color-brand-light">Style&nbsp;:</span>&nbsp;Punk, Dub, Funk
-        </h4>
-        <h4>
-            <span class="text-color-brand-light">Country&nbsp;:</span>&nbsp;USA
-        </h4>
-    </header>
-    <footer>
-        <button type="submit" form="searchBar" class="btn btn-brand-dark width-100">
-            Add&nbsp;<i class="ico-plus"></i>
-        </button>
-    </footer>
-</article>
+            <h4>
+                <span class="text-color-brand-light">Year&nbsp;:</span>&nbsp;[[releaseYear]]
+            </h4>
+            <h4>
+                <span class="text-color-brand-light">Style&nbsp;:</span>&nbsp;[[genre]]
+            </h4>
+            <h4>
+                <span class="text-color-brand-light">Country&nbsp;:</span>&nbsp;[[country]]
+            </h4>
+        </header>
+        <footer>
+            <button type="submit" form="searchBar" class="btn btn-brand-dark width-100">
+                Add&nbsp;<i class="ico-plus"></i>
+            </button>
+        </footer>
+    </article>
+</script>

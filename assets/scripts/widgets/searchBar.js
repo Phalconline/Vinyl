@@ -18,13 +18,17 @@ export default {
     $searchBtnEl: null
   },
 
-  selectors: {
+  selector: {
     searchBarSel: '#searchBar',
     artistSel: '#Artist',
     genreSel: '#Genre',
     decadeSel: '#Decade',
     countrySel: '#Country',
     searchBtnSel: '#SearchBtn'
+  },
+
+  handler: {
+    boundHandleFormSubmit: null
   },
 
   init(filtersData) {
@@ -39,23 +43,24 @@ export default {
   },
 
   setFiltersData(filtersData) {
-    this.filtersData.DECADES = filtersData.DECADES;
-    this.filtersData.GENRES = filtersData.GENRES;
-    this.filtersData.COUNTRIES = filtersData.COUNTRIES;
-    this.currentFilters = filtersData.selected || {};
+    Object.assign(this.filtersData.DECADES, filtersData.DECADES);
+    Object.assign(this.filtersData.GENRES, filtersData.GENRES);
+    Object.assign(this.filtersData.COUNTRIES, filtersData.COUNTRIES);
+    Object.assign(this.currentFilters, filtersData.selected);
   },
 
   defineEls() {
-    this.$el.$searchBarEl = document.querySelector(this.selectors.searchBarSel);
-    this.$el.$artistEl = this.$el.$searchBarEl.querySelector(this.selectors.artistSel);
-    this.$el.$genreEl = this.$el.$searchBarEl.querySelector(this.selectors.genreSel);
-    this.$el.$decadeEl = this.$el.$searchBarEl.querySelector(this.selectors.decadeSel);
-    this.$el.$countryEl = this.$el.$searchBarEl.querySelector(this.selectors.countrySel);
-    this.$el.$searchBtnEl = this.$el.$searchBarEl.querySelector(this.selectors.searchBtnSel);
+    this.$el.$searchBarEl = document.querySelector(this.selector.searchBarSel);
+    this.$el.$artistEl = this.$el.$searchBarEl.querySelector(this.selector.artistSel);
+    this.$el.$genreEl = this.$el.$searchBarEl.querySelector(this.selector.genreSel);
+    this.$el.$decadeEl = this.$el.$searchBarEl.querySelector(this.selector.decadeSel);
+    this.$el.$countryEl = this.$el.$searchBarEl.querySelector(this.selector.countrySel);
+    this.$el.$searchBtnEl = this.$el.$searchBarEl.querySelector(this.selector.searchBtnSel);
   },
 
   defineHandlers() {
-    this.$el.$searchBarEl.addEventListener('submit', this.onFormSubmit.bind(this));
+    this.handler.boundHandleFormSubmit = this.onFormSubmit.bind(this);
+    this.$el.$searchBarEl.addEventListener('submit', this.handler.boundHandleFormSubmit);
   },
 
   // @todo optimize this logic
@@ -72,6 +77,7 @@ export default {
 
   render() {
     this.renderFilters();
+    this.defineEls();
     this.renderFiltersState();
   },
 
@@ -99,7 +105,6 @@ export default {
         break;
       }
 
-      this.$el[`$${filter}El`].querySelector(`option[selected]`).removeAttribute('selected');
       this.$el[`$${filter}El`].querySelector(`option[value="${this.currentFilters[filter]}"]`).setAttribute('selected', 'selected');
     }
   },
@@ -121,7 +126,43 @@ export default {
     url.push(['?', searchRequest.join('&')].join(''));
     url = url.join('');
 
+    this.destroy();
     window.history.pushState({path: url}, '', url);
     helper.dispatchHistoryStateUpdate(url);
+  },
+
+  destroy() {
+    this.resetHandlers();
+    this.removeHTML();
+    this.resetData();
+    this.resetEls();
+  },
+
+  resetData() {
+    this.filtersData.DECADES = {};
+    this.filtersData.GENRES = {};
+    this.filtersData.COUNTRIES = {};
+    this.currentFilters = {};
+  },
+
+  resetEls() {
+    for (let key in this.$el) {
+      this.$el[key] = null;
+    }
+  },
+
+  resetHandlers() {
+    this.$el.$searchBarEl.removeEventListener('submit', this.handler.boundHandleFormSubmit, false);
+  },
+
+  removeHTML() {
+    let $filterEl, $firstOption;
+
+    for (let filter in this.filtersData) {
+      $filterEl = this.getFilterElByFilterName(filter);
+      $firstOption = $filterEl.firstElementChild;
+      $filterEl.innerHTML = '';
+      $filterEl.append($firstOption);
+    }
   }
 }

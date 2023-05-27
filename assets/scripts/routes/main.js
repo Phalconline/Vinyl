@@ -1,17 +1,20 @@
 import API from "../utils/api"
 import searchBar from "../widgets/searchBar";
+import cardList from "../widgets/cardList";
 
 export default {
   searchBarFiltersData: {},
 
+  dataKey: 'VINYLS',
+
   init(match) {
     try {
-      console.log(match);
       this.setSearchBarConfig(match);
 
       searchBar.init(this.getSearchBarConfig());
+      cardList.init(API.getData(this.dataKey, match.params));
     } catch (error) {
-      console.error();
+      console.error(error);
     }
   },
 

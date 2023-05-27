@@ -4,225 +4,253 @@ export default {
       album: 'Thriller',
       artist: 'Michael Jackson',
       releaseYear: '1982',
+      decade: '1980',
       genre: 'Pop',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/1.webp'
+      posterImageName: '1'
     },
     'hash2': {
       album: 'Abbey Road',
       artist: 'The Beatles',
       releaseYear: '1969',
+      decade: '1960',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/2.webp'
+      posterImageName: '2'
     },
     'hash3': {
       album: 'The Dark Side of the Moon',
       artist: 'Pink Floyd',
       releaseYear: '1973',
+      decade: '1970',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/3.webp'
+      posterImageName: '3'
     },
     'hash4': {
       album: 'Back in Black',
       artist: 'AC/DC',
       releaseYear: '1980',
+      decade: '1980',
       genre: 'Hard Rock',
       country: 'Australia',
-      posterImageUrl: '/assets/images/modern/1x/4.webp'
+      posterImageName: '4'
     },
     'hash5': {
       album: 'Nevermind',
       artist: 'Nirvana',
       releaseYear: '1991',
+      decade: '1990',
       genre: 'Grunge',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/5.webp'
+      posterImageName: '5'
     },
     'hash6': {
       album: 'Led Zeppelin IV',
       artist: 'Led Zeppelin',
       releaseYear: '1971',
+      decade: '1970',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/6.webp'
+      posterImageName: '6'
     },
     'hash7': {
       album: 'Album 7',
       artist: 'Artist 7',
       releaseYear: '1967',
+      decade: '1960',
       genre: 'Rock',
       country: 'Australia',
-      posterImageUrl: '/assets/images/modern/1x/1.webp'
+      posterImageName: '1'
     },
     'hash8': {
       album: 'Album 8',
       artist: 'Artist 8',
       releaseYear: '1991',
+      decade: '1990',
       genre: 'Grunge',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/2.webp'
+      posterImageName: '2'
     },
     'hash9': {
       album: 'Album 9',
       artist: 'Artist 9',
       releaseYear: '2020',
+      decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageUrl: '/assets/images/modern/1x/3.webp'
+      posterImageName: '3'
     },
     'hash10': {
       album: 'Album 10',
       artist: 'Artist 10',
       releaseYear: '2011',
+      decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageUrl: '/assets/images/modern/1x/4.webp'
+      posterImageName: '4'
     },
     'hash11': {
       album: 'Album 11',
       artist: 'Artist 11',
       releaseYear: '2003',
+      decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageUrl: '/assets/images/modern/1x/1.webp'
+      posterImageName: '1'
     },
     'hash12': {
       album: 'Album 12',
       artist: 'Artist 12',
       releaseYear: '1978',
+      decade: '1970',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/2.webp'
+      posterImageName: '2'
     },
     'hash13': {
       album: 'Album 13',
       artist: 'Artist 13',
       releaseYear: '1988',
+      decade: '1980',
       genre: 'Metal',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/3.webp'
+      posterImageName: '3'
     },
     'hash14': {
       album: 'Album 14',
       artist: 'Artist 14',
       releaseYear: '1987',
+      decade: '1980',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/4.webp'
+      posterImageName: '4'
     },
     'hash15': {
       album: 'Album 15',
       artist: 'Artist 15',
       releaseYear: '1989',
+      decade: '1980',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/5.webp'
+      posterImageName: '5'
     },
     'hash16': {
       album: 'Album 16',
       artist: 'Artist 16',
       releaseYear: '1999',
+      decade: '1990',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/6.webp'
+      posterImageName: '6'
     },
     'hash17': {
       album: 'Album 17',
       artist: 'Artist 17',
       releaseYear: '1973',
+      decade: '1970',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageUrl: '/assets/images/modern/1x/1.webp'
+      posterImageName: '1'
     },
     'hash18': {
       album: 'Album 18',
       artist: 'Artist 18',
       releaseYear: '1967',
+      decade: '1960',
       genre: 'Pop',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/2.webp'
+      posterImageName: '2'
     },
     'hash19': {
       album: 'Album 19',
       artist: 'Artist 19',
       releaseYear: '1952',
+      decade: '1950',
       genre: 'Pop',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/3.webp'
+      posterImageName: '3'
     },
     'hash20': {
       album: 'Album 20',
       artist: 'Artist 20',
       releaseYear: '1951',
+      decade: '1950',
       genre: 'Country',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/4.webp'
+      posterImageName: '4'
     },
     'hash21': {
       album: 'Album 21',
       artist: 'Artist 21',
       releaseYear: '1988',
+      decade: '1980',
       genre: 'Metal',
       country: 'United States',
-      posterImageUrl: '/assets/images/modern/1x/5.webp'
+      posterImageName: '5'
     },
     'hash22': {
       album: 'Album 22',
       artist: 'Artist 22',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/6.webp'
+      posterImageName: '6'
     },
     'hash23': {
       album: 'Album 23',
       artist: 'Artist 23',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/1.webp'
+      posterImageName: '1'
     },
     'hash24': {
       album: 'Album 24',
       artist: 'Artist 24',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/2.webp'
+      posterImageName: '2'
     },
     'hash25': {
       album: 'Album 25',
       artist: 'Artist 25',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/3.webp'
+      posterImageName: '3'
     },
     'hash26': {
       album: 'Album 26',
       artist: 'Artist 26',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/4.webp'
+      posterImageName: '4'
     },
     'hash27': {
       album: 'Album 27',
       artist: 'Artist 27',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/5.webp'
+      posterImageName: '5'
     },
     'hash28': {
       album: 'Album 28',
       artist: 'Artist 28',
       releaseYear: '1998',
+      decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageUrl: '/assets/images/modern/1x/6.webp'
+      posterImageName: '6'
     }
   }),
 
