@@ -15,9 +15,7 @@ const app = async () => {
     '/favourites':  (match) => favourites.init(match),
   }).resolve();
 
-  window.addEventListener("historyStateUpdate", (event) => {
-    ROUTER.navigate(event.detail.url);
-  }, {passive: true});
+  ROUTER.addBeforeHook('/', (done) => main.destroy(done))
 };
 
 document.addEventListener('DOMContentLoaded', app);

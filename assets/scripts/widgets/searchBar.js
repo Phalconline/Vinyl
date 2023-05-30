@@ -1,5 +1,3 @@
-import helper from "./../utils/helpers";
-
 export default {
   filtersData: {
     DECADES: {},
@@ -25,6 +23,10 @@ export default {
     decadeSel: '#Decade',
     countrySel: '#Country',
     searchBtnSel: '#SearchBtn'
+  },
+
+  event: {
+    filtersFormSubmit: 'filtersFormSubmit'
   },
 
   handler: {
@@ -126,9 +128,14 @@ export default {
     url.push(['?', searchRequest.join('&')].join(''));
     url = url.join('');
 
-    this.destroy();
     window.history.pushState({path: url}, '', url);
-    helper.dispatchHistoryStateUpdate(url);
+    this.dispatchFormSubmit(this.currentFilters);
+  },
+
+  dispatchFormSubmit(filters) {
+    window.dispatchEvent(
+      new CustomEvent(this.event.filtersFormSubmit, {detail: filters})
+    );
   },
 
   destroy() {

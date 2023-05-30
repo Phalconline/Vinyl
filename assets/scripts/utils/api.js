@@ -11,16 +11,20 @@ export default {
     this.data = mock;
   },
 
-  getData(key, filters) {
-    let filteredData = {};
+  getData(key, filters, count, lastItem) {
+    let filteredData = {},
+      selectedData = {},
+      startItem = lastItem - count;
 
-    if (!filters) return this.data[key];
+    selectedData = this.data[key];
 
-    for(let hash in this.data[key]) {
+    if (!filters) return selectedData;
+
+    for(let hash in selectedData) {
       let passCondition = true;
 
       for(let filter in filters) {
-        if(!this.data[key][hash][filter].toLowerCase().includes(filters[filter].toLowerCase())) {
+        if(!selectedData[hash][filter].toLowerCase().includes(filters[filter].toLowerCase())) {
           passCondition = false;
 
           break;
@@ -28,8 +32,12 @@ export default {
       }
 
       if(passCondition) {
-        filteredData[hash] = this.data[key][hash];
+        filteredData[hash] = selectedData[hash];
       }
+    }
+
+    if( Object.keys(filteredData).length > count) {
+      filteredData = Object.fromEntries(Object.entries(filteredData).slice(startItem,lastItem));
     }
 
     return filteredData;

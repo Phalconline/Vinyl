@@ -1,0 +1,23 @@
+.pagination {
+    &-el {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40rem;
+        height: 40rem;
+        border-radius: var(--border-raduis-base);
+        background-color: transparent;
+        transition: var(--tr-fast) background-color, var(--tr-fast) color;
+        color: var(--color-brand-light);
+
+        &:hover{
+            background-color: var(--color-brand);
+            color: var(--color-white);
+        }
+
+        &-current {
+            background-color: var(--color-brand);
+            color: var(--color-white);
+        }
+    }
+}
