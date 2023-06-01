@@ -48,7 +48,13 @@ export default {
     Object.assign(this.filtersData.DECADES, filtersData.DECADES);
     Object.assign(this.filtersData.GENRES, filtersData.GENRES);
     Object.assign(this.filtersData.COUNTRIES, filtersData.COUNTRIES);
-    Object.assign(this.currentFilters, filtersData.selected);
+
+    this.setCurrentFilters(filtersData.selected);
+  },
+
+  setCurrentFilters(selected) {
+    this.currentFilters = {};
+    Object.assign(this.currentFilters, selected);
   },
 
   defineEls() {
@@ -107,13 +113,16 @@ export default {
         break;
       }
 
-      this.$el[`$${filter}El`].querySelector(`option[value="${this.currentFilters[filter]}"]`).setAttribute('selected', 'selected');
+      if (this.$el[`$${filter}El`]) {
+        this.$el[`$${filter}El`].querySelector(`option[value="${this.currentFilters[filter]}"]`).setAttribute('selected', 'selected');
+      }
     }
   },
 
   onFormSubmit(event) {
     const formData = new FormData(event.target);
     let searchRequest = [],
+      filtersData = {},
       url = [window.location.pathname];
 
     event.preventDefault();
@@ -122,11 +131,13 @@ export default {
       if (value) {
         this.currentFilters[key] = value;
         searchRequest.push(`${key}=${value}`);
+        filtersData[key] = value;
       }
     }
 
     url.push(['?', searchRequest.join('&')].join(''));
     url = url.join('');
+    this.setCurrentFilters(filtersData);
 
     window.history.pushState({path: url}, '', url);
     this.dispatchFormSubmit(this.currentFilters);

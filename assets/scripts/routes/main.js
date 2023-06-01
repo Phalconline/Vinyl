@@ -4,14 +4,18 @@ import cardList from "../widgets/cardList";
 
 export default {
   handler: {
-    boundHandleFiltersFormSubmit: null
+    boundHandleFiltersFormSubmit: null,
+    boundHandlerPageChange: null
   },
 
-  searchBarFiltersData: {},
+  searchBarFiltersData: {
+    selected: {}
+  },
 
   cardListConfig: {
-    cardsPerPage: 5,
-    currentPage: 1
+    cardsPerPage: 10,
+    currentPage: 1,
+    pageAmount: 1
   },
 
   dataKey: 'VINYLS',
@@ -20,18 +24,21 @@ export default {
 
     try {
       this.defineHandlers();
+
+      if (match.params && match.params.hasOwnProperty('page')) this.setCurrentPage(match.params.page);
+
       this.setSearchBarConfig(match);
+      this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, this.getFilters()));
 
       searchBar.init(this.getSearchBarConfig());
 
-      cardList.init(this.cardListConfig.currentPage);
       cardList.init(
         API.getData(
           this.dataKey,
           match.params,
           this.cardListConfig.cardsPerPage,
           this.cardListConfig.currentPage * this.cardListConfig.cardsPerPage,
-        )
+        ), this.getCardListConfig()
       );
     } catch (error) {
       console.error(error);
@@ -40,6 +47,11 @@ export default {
 
   setCurrentPage(pageNumber) {
     this.cardListConfig.currentPage = pageNumber;
+  },
+
+  setCardListConfig(currentPage, cardsAmount) {
+    this.cardListConfig.pageAmount = Math.ceil(cardsAmount / this.cardListConfig.cardsPerPage);
+    this.cardListConfig.currentPage = currentPage;
   },
 
   setSearchBarConfig(match) {
@@ -58,8 +70,16 @@ export default {
     this.searchBarFiltersData = searchBarFiltersData;
   },
 
+  getFilters() {
+    return this.searchBarFiltersData.selected;
+  },
+
   getSearchBarConfig() {
     return this.searchBarFiltersData;
+  },
+
+  getCardListConfig() {
+    return this.cardListConfig;
   },
 
   defineHandlers() {
@@ -69,11 +89,18 @@ export default {
       this.handler.boundHandleFiltersFormSubmit,
       {passive: true}
     );
+
+    this.handler.boundHandlerPageChange = this.onPageChange.bind(this);
+    window.addEventListener(
+      cardList.event.pageChange,
+      this.handler.boundHandlerPageChange,
+      {passive: true}
+    );
   },
 
   onFiltersFormSubmit(event) {
     let filters = event.detail,
-        firstPage = 1;
+      firstPage = 1;
 
     this.setCurrentPage(firstPage);
 
@@ -83,7 +110,24 @@ export default {
         filters,
         this.cardListConfig.cardsPerPage,
         this.cardListConfig.currentPage * this.cardListConfig.cardsPerPage,
-      )
+      ), this.getCardListConfig()
+    );
+  },
+
+  onPageChange(event) {
+    let page = event.detail;
+
+    this.setCurrentPage(page);
+    this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, this.getFilters()));
+
+    cardList.setConfig(this.getCardListConfig());
+    cardList.updateView(
+      API.getData(
+        this.dataKey,
+        this.getFilters(),
+        this.cardListConfig.cardsPerPage,
+        this.cardListConfig.currentPage * this.cardListConfig.cardsPerPage,
+      ), this.getCardListConfig()
     );
   },
 

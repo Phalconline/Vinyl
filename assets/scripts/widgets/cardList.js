@@ -1,12 +1,28 @@
 import Handlebars from 'handlebars';
+import Helpers from "../utils/helpers";
 
 export default {
   $el: {
-    $cardTPL: null, $cardListEl: null, $cardListInnerWrapper: null,
+    $cardTPL: null,
+    $cardListEl: null,
+    $cardListInnerWrapper: null,
+    $paginationEl: null
   },
 
   $selectors: {
-    cardTPLSel: '#cardViewTPL', cardListSel: '#cardList', cardListInnerWrapperSel: '#cardListInnerWrapper'
+    cardTPLSel: '#cardViewTPL',
+    cardListSel: '#cardList',
+    cardListInnerWrapperSel: '#cardListInnerWrapper',
+    paginationSel: '#pagination'
+  },
+
+  cls: {
+    activePaginationElCls: 'pagination-el-current',
+    paginationElCls: 'pagination-el'
+  },
+
+  handler: {
+    paginationOnClick: null
   },
 
   TPL: {
@@ -14,20 +30,32 @@ export default {
   },
 
   config: {
-    cardsPerPage: 5
+    cardsPerPage: 5,
+    currentPage: 1,
+    pageAmount: 1
+  },
+
+  event: {
+    pageChange: 'pageChange'
   },
 
   data: {},
 
-  init(data) {
+  init(data, config) {
     try {
+      this.setConfig(config);
       this.setData(data);
       this.defineEl();
       this.defineTPL();
       this.render();
+      this.defineHandlers();
     } catch (error) {
       console.error(error);
     }
+  },
+
+  setConfig(config) {
+    Object.assign(this.config, config);
   },
 
   setData(data) {
@@ -35,15 +63,11 @@ export default {
     Object.assign(this.data, data);
   },
 
-  setPagination(cardsPerPage) {
-    this.config.cardsPerPage = cardsPerPage;
-  },
-
   defineEl() {
     this.$el.$cardTPL = document.querySelector(this.$selectors.cardTPLSel);
     this.$el.$cardListEl = document.querySelector(this.$selectors.cardListSel);
     this.$el.$cardListInnerWrapper = this.$el.$cardListEl.querySelector(this.$selectors.cardListInnerWrapperSel);
-
+    this.$el.$paginationEl = this.$el.$cardListEl.querySelector(this.$selectors.paginationSel);
   },
 
   defineTPL() {
@@ -53,10 +77,30 @@ export default {
   },
 
   defineHandlers() {
-
+    this.handler.paginationOnClick = this.onPaginationClick.bind(this);
+    this.$el.$paginationEl.addEventListener('click', this.handler.paginationOnClick);
   },
 
-  updateView(data) {
+  dispatchPageChange(page) {
+    window.dispatchEvent(
+      new CustomEvent(this.event.pageChange, {detail: page})
+    );
+  },
+
+  onPaginationClick(event) {
+    const url = new URL(location),
+      $el = event.target,
+      urlRegex = /page=[0-9]/i,
+      getParamName = 'page';
+
+    if (!$el.classList.contains(this.cls.paginationElCls)) return false;
+
+    Helpers.updateGETParam(getParamName, $el.dataset.page, urlRegex);
+
+    this.dispatchPageChange($el.dataset.page);
+  },
+
+  updateView(data, page) {
     try {
       this.setData(data);
       this.render();
@@ -67,6 +111,7 @@ export default {
 
   render() {
     this.renderCards();
+    this.renderPagination(this.config.pageAmount, this.config.currentPage);
   },
 
   renderCards() {
@@ -77,11 +122,30 @@ export default {
     }
   },
 
-  renderPagination() {
-    let $pagiItemEl = document.createElement('a');
+  renderPagination(pagesAmount, activePageNumber) {
+    let $paginationItemEl, paginationContent;
+
+    this.clearPagination();
+
+    for (let pageIndex = 1; pageIndex <= pagesAmount; pageIndex++) {
+      $paginationItemEl = document.createElement('a');
+      $paginationItemEl.classList.add(this.cls.paginationElCls);
+      $paginationItemEl.setAttribute('href', 'javascript:void(0)');
+      $paginationItemEl.setAttribute('data-page', pageIndex);
+      paginationContent = document.createTextNode([pageIndex].join(''));
+      $paginationItemEl.appendChild(paginationContent);
+
+      if (pageIndex.toString() === activePageNumber.toString()) $paginationItemEl.classList.add(this.cls.activePaginationElCls);
+
+      this.$el.$paginationEl.appendChild($paginationItemEl);
+    }
   },
 
-  destroy () {
+  destroy() {
+    this.clearPagination();
+  },
 
+  clearPagination() {
+    this.$el.$paginationEl.innerHTML = '';
   }
 }
