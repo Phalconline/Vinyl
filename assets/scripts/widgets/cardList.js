@@ -172,6 +172,12 @@ export default {
   renderCards() {
     this.$el.$cardListInnerWrapper.innerHTML = '';
 
+    if(!Object.keys(this.data).length) {
+      this.$el.$cardListInnerWrapper.innerHTML = '<h2 class="fz-big">No Results Found!</h2>'
+
+      return;
+    }
+
     for (let key in this.data) {
       this.data[key]['id'] = key;
       this.$el.$cardListInnerWrapper.insertAdjacentHTML('beforeend', this.TPL.card(this.data[key]));
@@ -198,10 +204,16 @@ export default {
   },
 
   destroy() {
+    // @todo unsubscribe events
+    this.clearView();
     this.clearPagination();
   },
 
   clearPagination() {
     this.$el.$paginationEl.innerHTML = '';
-  }
+  },
+
+  clearView() {
+    this.$el.$cardListInnerWrapper.innerHTML = '';
+  },
 }

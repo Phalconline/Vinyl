@@ -20,6 +20,16 @@ const app = async () => {
       uses: (match) => favourites.init(match)
     },
   }).resolve();
+
+  ROUTER.addLeaveHook('/', (done) => {
+    main.destroy();
+    done();
+  });
+
+  ROUTER.addLeaveHook('favourites', (done) => {
+    favourites.destroy();
+    done();
+  });
 };
 
 document.addEventListener('DOMContentLoaded', app);

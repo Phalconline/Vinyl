@@ -52,10 +52,12 @@ export default {
   },
 
   onLikedPageBtnClick() {
+    window.history.pushState({path: '/favourites'}, '', '/favourites');
     this.ROUTER.navigateByName('favourites');
   },
 
   onMainBtnPageClick() {
+    window.history.pushState({path: '/'}, '', '/');
     this.ROUTER.navigateByName('main');
   }
 }

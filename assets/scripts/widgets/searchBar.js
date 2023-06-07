@@ -181,6 +181,7 @@ export default {
       $firstOption = $filterEl.firstElementChild;
       $filterEl.innerHTML = '';
       $filterEl.append($firstOption);
+      this.$el.$artistEl.value = '';
     }
   }
 }

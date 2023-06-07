@@ -22,11 +22,12 @@ export default {
   dataKey: 'VINYLS',
 
   init(match) {
-
     try {
       this.defineHandlers();
 
-      if (match.params && match.params.hasOwnProperty('page')) this.setCurrentPage(match.params.page);
+      if(!match.params) match.params = {};
+
+      if (match.params.hasOwnProperty('page')) this.setCurrentPage(match.params.page);
 
       this.setSearchBarConfig(match);
       this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, this.getFilters()));
@@ -69,6 +70,10 @@ export default {
     }
 
     this.searchBarFiltersData = searchBarFiltersData;
+  },
+
+  setFilters(filters) {
+    this.searchBarFiltersData.selected = filters;
   },
 
   getFilters() {
@@ -118,6 +123,7 @@ export default {
       firstPage = 1;
 
     this.setCurrentPage(firstPage);
+    this.setFilters(filters);
     this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, filters));
 
     cardList.updateView(
