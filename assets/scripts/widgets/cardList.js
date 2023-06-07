@@ -10,7 +10,7 @@ export default {
     $paginationEl: null
   },
 
-  $selectors: {
+  selector: {
     cardTPLSel: '#cardViewTPL',
     cardListSel: '#cardList',
     cardListInnerWrapperSel: '#cardListInnerWrapper',
@@ -76,10 +76,10 @@ export default {
   },
 
   defineEl() {
-    this.$el.$cardTPL = document.querySelector(this.$selectors.cardTPLSel);
-    this.$el.$cardListEl = document.querySelector(this.$selectors.cardListSel);
-    this.$el.$cardListInnerWrapper = this.$el.$cardListEl.querySelector(this.$selectors.cardListInnerWrapperSel);
-    this.$el.$paginationEl = this.$el.$cardListEl.querySelector(this.$selectors.paginationSel);
+    this.$el.$cardTPL = document.querySelector(this.selector.cardTPLSel);
+    this.$el.$cardListEl = document.querySelector(this.selector.cardListSel);
+    this.$el.$cardListInnerWrapper = this.$el.$cardListEl.querySelector(this.selector.cardListInnerWrapperSel);
+    this.$el.$paginationEl = this.$el.$cardListEl.querySelector(this.selector.paginationSel);
   },
 
   defineTPL() {
@@ -134,17 +134,17 @@ export default {
     event.stopPropagation();
     event.preventDefault();
 
-    $elCurrentCard = $el.closest(this.$selectors.cardSel);
+    $elCurrentCard = $el.closest(this.selector.cardSel);
 
     if($elCurrentCard.dataset.liked === boolStrTrue) {
-      $elCurrentCard.querySelector(this.$selectors.likedBtn).innerHTML = this.TPL.addBtnTpl;
-      $elCurrentCard.querySelector(this.$selectors.likedIcoBtn).innerHTML = this.TPL.addIcoTPL;
-      $elCurrentCard.querySelector(this.$selectors.likedIcoBtn).classList.remove(this.cls.textColorRed);
+      $elCurrentCard.querySelector(this.selector.likedBtn).innerHTML = this.TPL.addBtnTpl;
+      $elCurrentCard.querySelector(this.selector.likedIcoBtn).innerHTML = this.TPL.addIcoTPL;
+      $elCurrentCard.querySelector(this.selector.likedIcoBtn).classList.remove(this.cls.textColorRed);
       $elCurrentCard.dataset.liked = boolStrFalse;
     } else {
-      $elCurrentCard.querySelector(this.$selectors.likedBtn).innerHTML = this.TPL.removeBtnTpl;
-      $elCurrentCard.querySelector(this.$selectors.likedIcoBtn).innerHTML = this.TPL.removeIcoTPL;
-      $elCurrentCard.querySelector(this.$selectors.likedIcoBtn).classList.add(this.cls.textColorRed);
+      $elCurrentCard.querySelector(this.selector.likedBtn).innerHTML = this.TPL.removeBtnTpl;
+      $elCurrentCard.querySelector(this.selector.likedIcoBtn).innerHTML = this.TPL.removeIcoTPL;
+      $elCurrentCard.querySelector(this.selector.likedIcoBtn).classList.add(this.cls.textColorRed);
       $elCurrentCard.dataset.liked = boolStrTrue;
     }
 
