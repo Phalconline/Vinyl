@@ -1,5 +1,5 @@
 html {
-    scroll-behavior: smooth;
+    overflow: hidden;
     font-size: var(--fz-initial-ratio);
 
     body {
@@ -17,7 +17,11 @@ html {
         }
 
         main {
+            overflow-x: hidden;
+            height: calc(100vh - var(--nav-height));
             padding: 16rem 0 36rem;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
     }
 }
