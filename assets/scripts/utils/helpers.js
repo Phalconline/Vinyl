@@ -11,5 +11,11 @@ export default {
     }
 
     window.history.pushState({path: url}, '', url);
+  },
+
+  hasParentClass($el, classname) {
+    if ($el.className && $el.className.split(' ').indexOf(classname)>=0) return true;
+
+    return $el.parentNode && this.hasParentClass($el.parentNode, classname);
   }
 }

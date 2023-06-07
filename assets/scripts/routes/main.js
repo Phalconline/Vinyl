@@ -5,7 +5,8 @@ import cardList from "../widgets/cardList";
 export default {
   handler: {
     boundHandleFiltersFormSubmit: null,
-    boundHandlerPageChange: null
+    boundHandlerPageChange: null,
+    boundHandlerLikeChange: null
   },
 
   searchBarFiltersData: {
@@ -96,6 +97,20 @@ export default {
       this.handler.boundHandlerPageChange,
       {passive: true}
     );
+
+    this.handler.boundHandlerLikeChange = this.onLikeChange.bind(this);
+    window.addEventListener(
+      cardList.event.likeChange,
+      this.handler.boundHandlerLikeChange,
+      {passive: true}
+    );
+  },
+
+  onLikeChange(event) {
+    API.updateRecord(
+      this.dataKey,
+      event.detail.id,
+      {liked: event.detail.liked})
   },
 
   onFiltersFormSubmit(event) {
@@ -103,6 +118,7 @@ export default {
       firstPage = 1;
 
     this.setCurrentPage(firstPage);
+    this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, filters));
 
     cardList.updateView(
       API.getData(
@@ -120,7 +136,6 @@ export default {
     this.setCurrentPage(page);
     this.setCardListConfig(this.cardListConfig.currentPage, API.getDataCount(this.dataKey, this.getFilters()));
 
-    cardList.setConfig(this.getCardListConfig());
     cardList.updateView(
       API.getData(
         this.dataKey,

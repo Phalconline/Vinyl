@@ -1,5 +1,5 @@
 <script id="cardViewTPL" type="text/x-handlebars-template">
-    <article class="card">
+    <article class="card" data-id="[[id]]" data-liked=[[liked]]>
         <section class="card-poster">
             <picture class="width-100 display-b">
                 <source srcset="/assets/images/posters/modern/1x/[[posterImageName]].webp, /assets/images/posters/modern/2x/[[posterImageName]]_2x.webp 2x"
@@ -8,7 +8,15 @@
                      type="image/png"
                      alt="title" width="169" height="169" loading="lazy"/>
             </picture>
-            <a href="javascript:void(0);"><i class="ico-heart"></i></a>
+            [[#if liked]]
+                <a href="javascript:void(0);" class="text-color-red like-js">
+                    <i class="ico-heart-filled"></i>
+                </a>
+            [[else]]
+                <a href="javascript:void(0);" class="like-js">
+                    <i class="ico-heart"></i>
+                </a>
+            [[/if]]
         </section>
         <header class="card-content flex flex-direction-column">
             <h2><b>[[album]]</b></h2>
@@ -25,9 +33,14 @@
             </h4>
         </header>
         <footer>
-            <button type="submit" form="searchBar" class="btn btn-brand-dark width-100">
-                Add&nbsp;<i class="ico-plus"></i>
+            <button type="submit" form="searchBar" class="btn btn-brand-dark width-100 like-js">
+                [[#if liked]]
+                    Remove&nbsp;<i class="ico-minus"></i>
+                [[else]]
+                    Add&nbsp;<i class="ico-plus"></i>
+                [[/if]]
             </button>
         </footer>
     </article>
+
 </script>

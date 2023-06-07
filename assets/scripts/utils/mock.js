@@ -7,7 +7,8 @@ export default {
       decade: '1980',
       genre: 'Pop',
       country: 'United States',
-      posterImageName: '1'
+      posterImageName: '1',
+      liked: true
     },
     'hash2': {
       album: 'Abbey Road',
@@ -16,7 +17,8 @@ export default {
       decade: '1960',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageName: '2'
+      posterImageName: '2',
+      liked: false
     },
     'hash3': {
       album: 'The Dark Side of the Moon',
@@ -25,7 +27,8 @@ export default {
       decade: '1970',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageName: '3'
+      posterImageName: '3',
+      liked: false
     },
     'hash4': {
       album: 'Back in Black',
@@ -34,7 +37,8 @@ export default {
       decade: '1980',
       genre: 'Hard Rock',
       country: 'Australia',
-      posterImageName: '4'
+      posterImageName: '4',
+      liked: false
     },
     'hash5': {
       album: 'Nevermind',
@@ -43,7 +47,8 @@ export default {
       decade: '1990',
       genre: 'Grunge',
       country: 'United States',
-      posterImageName: '5'
+      posterImageName: '5',
+      liked: false
     },
     'hash6': {
       album: 'Led Zeppelin IV',
@@ -52,7 +57,8 @@ export default {
       decade: '1970',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageName: '6'
+      posterImageName: '6',
+      liked: false
     },
     'hash7': {
       album: 'Album 7',
@@ -61,7 +67,8 @@ export default {
       decade: '1960',
       genre: 'Rock',
       country: 'Australia',
-      posterImageName: '1'
+      posterImageName: '1',
+      liked: false
     },
     'hash8': {
       album: 'Album 8',
@@ -70,7 +77,8 @@ export default {
       decade: '1990',
       genre: 'Grunge',
       country: 'United States',
-      posterImageName: '2'
+      posterImageName: '2',
+      liked: false
     },
     'hash9': {
       album: 'Album 9',
@@ -79,7 +87,8 @@ export default {
       decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageName: '3'
+      posterImageName: '3',
+      liked: false
     },
     'hash10': {
       album: 'Album 10',
@@ -88,7 +97,8 @@ export default {
       decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageName: '4'
+      posterImageName: '4',
+      liked: false
     },
     'hash11': {
       album: 'Album 11',
@@ -97,7 +107,8 @@ export default {
       decade: '2000',
       genre: 'Folk',
       country: 'Ukraine',
-      posterImageName: '1'
+      posterImageName: '1',
+      liked: false
     },
     'hash12': {
       album: 'Album 12',
@@ -106,7 +117,8 @@ export default {
       decade: '1970',
       genre: 'Rock',
       country: 'United Kingdom',
-      posterImageName: '2'
+      posterImageName: '2',
+      liked: false
     },
     'hash13': {
       album: 'Album 13',
@@ -115,7 +127,8 @@ export default {
       decade: '1980',
       genre: 'Metal',
       country: 'United Kingdom',
-      posterImageName: '3'
+      posterImageName: '3',
+      liked: false
     },
     'hash14': {
       album: 'Album 14',
@@ -124,7 +137,8 @@ export default {
       decade: '1980',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageName: '4'
+      posterImageName: '4',
+      liked: false
     },
     'hash15': {
       album: 'Album 15',
@@ -133,7 +147,8 @@ export default {
       decade: '1980',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageName: '5'
+      posterImageName: '5',
+      liked: false
     },
     'hash16': {
       album: 'Album 16',
@@ -142,7 +157,8 @@ export default {
       decade: '1990',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageName: '6'
+      posterImageName: '6',
+      liked: false
     },
     'hash17': {
       album: 'Album 17',
@@ -151,7 +167,8 @@ export default {
       decade: '1970',
       genre: 'Progressive Rock',
       country: 'United Kingdom',
-      posterImageName: '1'
+      posterImageName: '1',
+      liked: false
     },
     'hash18': {
       album: 'Album 18',
@@ -160,7 +177,8 @@ export default {
       decade: '1960',
       genre: 'Pop',
       country: 'United States',
-      posterImageName: '2'
+      posterImageName: '2',
+      liked: false
     },
     'hash19': {
       album: 'Album 19',
@@ -169,7 +187,8 @@ export default {
       decade: '1950',
       genre: 'Pop',
       country: 'United States',
-      posterImageName: '3'
+      posterImageName: '3',
+      liked: false
     },
     'hash20': {
       album: 'Album 20',
@@ -178,7 +197,8 @@ export default {
       decade: '1950',
       genre: 'Country',
       country: 'United States',
-      posterImageName: '4'
+      posterImageName: '4',
+      liked: false
     },
     'hash21': {
       album: 'Album 21',
@@ -187,7 +207,8 @@ export default {
       decade: '1980',
       genre: 'Metal',
       country: 'United States',
-      posterImageName: '5'
+      posterImageName: '5',
+      liked: false
     },
     'hash22': {
       album: 'Album 22',
@@ -196,7 +217,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '6'
+      posterImageName: '6',
+      liked: false
     },
     'hash23': {
       album: 'Album 23',
@@ -205,7 +227,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '1'
+      posterImageName: '1',
+      liked: false
     },
     'hash24': {
       album: 'Album 24',
@@ -214,7 +237,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '2'
+      posterImageName: '2',
+      liked: false
     },
     'hash25': {
       album: 'Album 25',
@@ -223,7 +247,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '3'
+      posterImageName: '3',
+      liked: false
     },
     'hash26': {
       album: 'Album 26',
@@ -232,7 +257,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '4'
+      posterImageName: '4',
+      liked: false
     },
     'hash27': {
       album: 'Album 27',
@@ -241,7 +267,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '5'
+      posterImageName: '5',
+      liked: false
     },
     'hash28': {
       album: 'Album 28',
@@ -250,7 +277,8 @@ export default {
       decade: '1990',
       genre: 'Metal',
       country: 'Norway',
-      posterImageName: '6'
+      posterImageName: '6',
+      liked: false
     }
   }),
 

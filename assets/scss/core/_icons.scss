@@ -27,7 +27,15 @@ i {
 
     }
 
+    &-heart-filled::before {
+        content: "\e904";
+    }
+
     &-plus::before {
         content: "\e902";
+    }
+
+    &-minus::before {
+        content: "\e905";
     }
 }

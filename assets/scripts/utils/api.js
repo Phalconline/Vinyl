@@ -1,14 +1,24 @@
 import mock from "../utils/mock"
 
 export default {
+
   data: {},
+
+  dataStorageName: 'DB',
 
   init() {
     this.setData();
   },
 
   setData() {
-    this.data = mock;
+    let data = localStorage.getItem(this.dataStorageName);
+
+    if(data) {
+      this.data = JSON.parse(data);
+    } else {
+      localStorage.setItem(this.dataStorageName, JSON.stringify(mock));
+      this.data = mock;
+    }
   },
 
   getDataCount(key, filters) {
@@ -38,9 +48,9 @@ export default {
 
       for (let filter in filters) {
 
-        if(!selectedData[hash][filter]) break;
+        if(typeof selectedData[hash][filter] === 'undefined') break;
 
-        if (!selectedData[hash][filter].toLowerCase().split(' ').join('').includes(filters[filter].toLowerCase())) {
+        if (!selectedData[hash][filter].toString().toLowerCase().split(' ').join('').includes(filters[filter].toLowerCase())) {
           passCondition = false;
 
           break;
@@ -57,5 +67,14 @@ export default {
 
   getAllData() {
     return this.data;
+  },
+
+  updateRecord(key, id, record) {
+    let data = this.getAllData();
+
+    data[key][id] = Object.assign(data[key][id], record);
+
+    localStorage.setItem(this.dataStorageName, JSON.stringify(data));
+    this.setData();
   }
 }
